@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>周易起卦 - 结果</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 20px; background-color: #f5f5f5; }
+        h1 { font-size: 5vw; margin-bottom: 20px; }
+        .gua-symbol { margin: 20px auto; }
+        .gua-line { display: block; margin: 5px auto; width: 20vw; height: 1vw; }
+        .yang { background: red; }
+        .yin { background: blue; height: 0.5vw; border-top: 0.5vw white solid; }
+        p { font-size: 4vw; margin: 10px 0; }
+        a { font-size: 4vw; color: red; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>{{ gua.name }}</h1>
+    <div class="gua-symbol">
+        {% for char in gua.symbol %}
+            {% if char == '1' %}
+                <div class="gua-line yang"></div>
+            {% else %}
+                <div class="gua-line yin"></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <p><strong>卦辞：</strong>{{ gua.gua_ci }}</p>
+    <p><strong>五行分析：</strong>{{ analysis }}</p>
+    <p><strong>用户输入：</strong>{{ user_input }}</p>
+    <p><a href="/">重新起卦（{{ luck }}）</a></p>
+</body>
+</html>
