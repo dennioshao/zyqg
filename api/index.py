@@ -1,5 +1,3 @@
-# api/index.py
-import os
 from app import app
 from werkzeug.wrappers import Request
 
@@ -24,7 +22,3 @@ def handler(event, context):
             'headers': dict(response.headers),
             'body': response.get_data(as_text=True)
         }
-
-# Vercel 期望的入口
-def main(event, context):
-    return handler(event, context)
